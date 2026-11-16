@@ -1,0 +1,16 @@
+# dsh-search-guard bundle patch layer.
+#
+# Inserted at the profile root, so the guard covers every agent the profile
+# runs (subagents included). Install with:
+#   dsh plugin --profile <name> add github:friedikitty/dsh-search-guard#v0.1.0
+# That adds this package to the profile dependencies and to
+# `dsh.profile.bundles`; the bundle loader then applies this patch at boot.
+#
+# Tune it in the profile's own cordis.patch.yml with an id-targeted override:
+#   - id: search-guard
+#     config:
+#       blocked: [grep, find]        # defaults: grep, egrep, fgrep, find
+#       tools: [pwsh]                # defaults: pwsh, bash
+- insert:
+    - id: search-guard
+      name: dsh-search-guard

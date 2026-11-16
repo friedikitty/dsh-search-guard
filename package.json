@@ -1,0 +1,47 @@
+{
+  "name": "dsh-search-guard",
+  "version": "0.1.0",
+  "description": "DSH bundle: deny shell-level grep / egrep / fgrep / find and route agents to git ls-files, fd, the Grep tool and rg.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./matcher": "./matcher.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "matcher.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "license": "MIT",
+  "author": "friedikitty",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/friedikitty/dsh-search-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/friedikitty/dsh-search-guard/issues"
+  },
+  "homepage": "https://github.com/friedikitty/dsh-search-guard#readme",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "search",
+    "guard",
+    "bundle"
+  ],
+  "engines": {
+    "dsh": "^0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node test/matcher.test.mjs && node test/guard.test.mjs"
+  }
+}
